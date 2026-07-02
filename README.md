@@ -10,4 +10,13 @@ Once all of the exercises are done and the course is complete, all exercise bran
 
 ### Folders / branches
 
-_N/A_
+```
+├── README.md
+└── exercise_2 | (f/EXERCISE-2)/
+    ├── exercise_2_circuit_diagram.png
+    ├── exercise_2_part_1.ino
+    ├── exercise_2_part_2.ino
+    ├── exercise_2_part_3.ino
+    ├── harjoite_2_raportti.docx
+    └── harjoite_2_raportti.pdf
+```
