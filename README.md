@@ -19,4 +19,11 @@ Once all of the exercises are done and the course is complete, all exercise bran
     ├── exercise_2_part_3.ino
     ├── harjoite_2_raportti.docx
     └── harjoite_2_raportti.pdf
+└── exercise_3 | (f/EXERCISE-3)/
+    ├── exercise_3_circuit_diagram.png
+    ├── exercise_3_part_1.ino
+    ├── exercise_3_part_2.ino
+    ├── exercise_3_part_3.ino
+    ├── harjoite_3_raportti.docx
+    └── harjoite_3_raportti.pdf
 ```
