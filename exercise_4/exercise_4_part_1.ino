@@ -28,15 +28,6 @@ void setup()
     emptyMemory,
     CHANGE
   );
-  
-  //Print length of data to run CRC on.
-  Serial.print("EEPROM length: ");
-  Serial.println(EEPROM.length());
-
-  //Print the result of calling eeprom_crc()
-  Serial.print("CRC32 of EEPROM data: 0x");
-  // Serial.println(eeprom_crc(), HEX);
-  Serial.print("\n\nDone!");
 }
 
 void loop()
