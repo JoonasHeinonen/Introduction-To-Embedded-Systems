@@ -19,14 +19,14 @@ void setup()
   previousADC = analogRead(A0);
   memoryAddress = 0;
 
-  // Button 2: empty EEPROM
+  // Attach interrupt 2.
   attachInterrupt(
     digitalPinToInterrupt(2),
     emptyMemory,
     FALLING
   );
 
-  // Button 1: print EEPROM contents
+  // Attach interrupt 3.
   attachInterrupt(
     digitalPinToInterrupt(3),
     printMemoryValue,
@@ -36,13 +36,6 @@ void setup()
 
 void loop()
 {
-  /**
-   * 1. Osa:
-   * Käytännössä siis ohjelma pyörii loopissa niin kauan, että on kulunut 5s edellisestä mittauksesta, jonka
-   * jälkeen siirrytään aliohjelmaan tallentamaan lämpötilaa. Tarvitset siis timerin, joka mittaa loopissa
-   * aikaa ohjelman käynnistyksen alusta ja sen avulla osataan sitten siirtyä 5 sekunnin välein mittaavaan
-   * aliohjelmaan.
-   */
   // Check temperature every 5 seconds
   if (millis() - previousTime >= 5000)
   {
@@ -51,78 +44,55 @@ void loop()
   }
 }
 
-int heatValue()
-{
-  float sum = 0.0f;
-
-  // Take 50 measurements
-  for (int i = 0; i < 50; i++)
-  {
-    sum += analogRead(A0);
-    delay(20);
-  }
-
-  int avgADC = sum / 50.0f;
-
-  return avgADC;
-}
-
-/**
- * 2. Osa:
- * Aliohjelmassa kirjoitat EEPROM-muistiin peräkkäisiin muistipaikkoihin ajankohdan ja ADC-arvon, mutta
- * vain jos ADC on eri kuin edellisessä mittauksessa (säilytä siis edellinen mitattu ADC-arvo muuttujassa ja
- * vertaa sitä uuteen arvoon).
- */
 void checkTemperature()
 {
-  // Otetaan aika talteen ENNEN mittausta
+  // Store the time before measuring.
   unsigned int seconds = millis() / 1000;
 
-  // Mitataan ADC
+  // Measure the ADC.
   int currentADC = heatValue();
 
-  // Tallennetaan ensimmäinen mittaus aina,
-  // sen jälkeen vain jos ADC muuttui
+  // Record the first measurement always,
+  // then if the ADC changed.
   if (firstMeasurement || currentADC != previousADC)
   {
-    // Jos EEPROM tulee täyteen, aloitetaan alusta
+    // If EEPROM gets full, start from begin.
     if (memoryAddress + 4 > EEPROM.length())
     {
       memoryAddress = 0;
     }
 
-    // Tallennetaan aika
+    // Record the time.
     EEPROM.put(memoryAddress, seconds);
 
-    // Tallennetaan ADC
+    // Record the ADC.
     EEPROM.put(memoryAddress + 2, currentADC);
 
-    // Seuraava mittaus alkaa seuraavasta 4 tavun kohdasta
+    // Next measurement begins starting by memory address 4.
     memoryAddress += 4;
 
     firstMeasurement = false;
   }
 
-  // Nykyisestä arvosta tulee seuraavan mittauksen vertailuarvo
   previousADC = currentADC;
 }
 
 void printMemoryValue()
 {
-  Serial.println("EEPROM-muistin sisältö:");
+  Serial.println("EEPROM-memory content:");
 
   for (int i = 0; i < memoryAddress; i += 4)
   {
     unsigned int time;
     int adc;
 
-    // Luetaan EEPROMista aika
+    // Read the time from EEPROM.
     EEPROM.get(i, time);
 
-    // Luetaan EEPROMista ADC
+    // Read the ADC from EEPROM.
     EEPROM.get(i + 2, adc);
 
-    // Lasketaan lämpötila
+    // Calculate the temperature.
     float lt = ((5 * adc / 1024.0) - 0.5) * 100;
     printVals(time, adc, lt);
   }
@@ -142,6 +112,22 @@ void emptyMemory()
   memoryAddress = 0;
 
   Serial.println("EEPROM is empty.");
+}
+
+int heatValue()
+{
+  float sum = 0.0f;
+
+  // Take 50 measurements
+  for (int i = 0; i < 50; i++)
+  {
+    sum += analogRead(A0);
+    delay(20);
+  }
+
+  int avgADC = sum / 50.0f;
+
+  return avgADC;
 }
 
 // Print saved values
