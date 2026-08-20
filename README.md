@@ -14,6 +14,9 @@ Once all of the exercises are done and the course is complete, all exercise bran
 └── exercise_5 | (f/EXERCISE-5)/
     ├── exercise_5_part_1_circuit_diagram.png
     ├── exercise_5_part_1.ino
-    ├── exercise_5_part_2.ino
     ├── exercise_5_part_2_circuit_diagram.png
-    └── harjoite_5_raportti.docx
+    ├── exercise_5_part_2.ino
+    ├── exercise_5_part_3_circuit_diagram.png
+    ├── exercise_5_part_3.ino
+    ├── harjoite_5_raportti.docx
+    └── harjoite_5_raportti.pdf
