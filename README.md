@@ -11,7 +11,6 @@ Once all of the exercises are done and the course is complete, all exercise bran
 ### Folders / branches
 
 ```
-├── raportti.docx
 ├── README.md
 └── exercise_4 | (f/EXERCISE-4)/
     ├── exercise_4_circuit_diagram.png
