@@ -11,19 +11,27 @@ Once all of the exercises are done and the course is complete, all exercise bran
 ### Folders / branches
 
 ```
+├── raportti.docx
 ├── README.md
-└── exercise_2 | (f/EXERCISE-2)/
-    ├── exercise_2_circuit_diagram.png
-    ├── exercise_2_part_1.ino
-    ├── exercise_2_part_2.ino
-    ├── exercise_2_part_3.ino
-    ├── harjoite_2_raportti.docx
-    └── harjoite_2_raportti.pdf
-└── exercise_3 | (f/EXERCISE-3)/
-    ├── exercise_3_circuit_diagram.png
-    ├── exercise_3_part_1.ino
-    ├── exercise_3_part_2.ino
-    ├── exercise_3_part_3.ino
-    ├── harjoite_3_raportti.docx
-    └── harjoite_3_raportti.pdf
+├── exercise_2 | (f/EXERCISE-2)/
+|   ├── exercise_2_circuit_diagram.png
+|   ├── exercise_2_part_1.ino
+|   ├── exercise_2_part_2.ino
+|   ├── exercise_2_part_3.ino
+|   ├── harjoite_2_raportti.docx
+|   └── harjoite_2_raportti.pdf
+├── exercise_3 | (f/EXERCISE-3)/
+|   ├── exercise_3_circuit_diagram.png
+|   ├── exercise_3_part_1.ino
+|   ├── exercise_3_part_2.ino
+|   ├── exercise_3_part_3.ino
+|   ├── harjoite_3_raportti.docx
+|   └── harjoite_3_raportti.pdf
+└── exercise_4 | (f/EXERCISE-4)/
+    ├── exercise_4_circuit_diagram.png
+    ├── exercise_4_part_1.ino
+    ├── exercise_4_part_2.ino
+    ├── exercise_4_part_3.ino
+    ├── harjoite_4_raportti.docx
+    └── harjoite_4_raportti.pdf
 ```
