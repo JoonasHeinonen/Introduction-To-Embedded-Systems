@@ -2,7 +2,7 @@
 
 This Github repository is used to store the exercises completed in the course Introduction To Embedded Systems / Johdatus sulautettuihin järjestelmiin.
 
-The course will be done so that the master branch will initially only contain this README.md and each exercise will be stored in a separate Git branch.
+The course will be done so that the master branch will initially only contain this README.md and each exercise will be stored in a separate Git branch. There will be another branch, **f/EXERCISES**, that will contain all the exercise folders.
 
 Branch naming and commit messaging will be standardized. Master commits will begin with **embedded-systems: \<commit-mgs>**. The exercise branches are named according to the exercise number, e.g. **f/EXERCISE-1** and exercise commit messages will be in the following format: **EXERCISE-1: \<commit-mgs>**
 
