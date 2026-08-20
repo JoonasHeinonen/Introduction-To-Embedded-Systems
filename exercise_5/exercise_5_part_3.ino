@@ -48,13 +48,13 @@ void loop()
   if (alertOn)
   {
     animColors();
-    // If switch is closed (LOW), turn on piezo tone
+    // If switch is closed (LOW), turn on piezo tone.
     if (switchState == LOW) {
       // Tone value is defined by the potentiometer.
       int toneVal = analogRead(potentioMeterPin) * 4;
       setAlarm(buzzerPin, toneVal, 200);
     } else {
-      // If switch is open (HIGH), turn off piezo
+      // If switch is open (HIGH), turn off piezo.
       noTone(buzzerPin);
       alertOn = false;
     }
